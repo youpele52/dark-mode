@@ -5,6 +5,7 @@ import Switch from './Switch'
 
 // save and check the users prefered theme, so that anytime we reload the page remains at the user prefered theme
 const getStorageTheme = () => {
+  // there seems to be a problem here
   let theme = 'dark-theme'
   let toggleValue = 'false'
   if (localStorage.getItem('theme')) {
