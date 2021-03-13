@@ -1,10 +1,11 @@
 import React from 'react'
 
 const Switch = ({ isOn, handleToggle, onColor }) => {
+  console.log(isOn)
   return (
     <>
       <input
-        checked={isOn}
+        checked={!!isOn}
         onChange={handleToggle}
         className='react-switch-checkbox'
         id={`react-switch-new`}

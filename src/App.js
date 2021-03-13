@@ -7,30 +7,31 @@ import Switch from './Switch'
 const getStorageTheme = () => {
   // there seems to be a problem here
   let theme = 'dark-theme'
-  let toggleValue = 'false'
+  //let toggleValue = 'false'
   if (localStorage.getItem('theme')) {
     theme = localStorage.getItem('theme')
-    toggleValue = localStorage.getItem('toggleValue')
+    //toggleValue = localStorage.getItem('toggleValue')
   }
-  return { theme, toggleValue }
+  return { theme }
 }
 
 function App() {
   const [theme, setTheme] = useState(getStorageTheme().theme)
-  const [value, setValue] = useState(getStorageTheme().toggleValue)
   const toggleTheme = () => {
     if (theme === 'dark-theme') {
-      setValue(!value)
+      //setValue(!value)
       setTheme('light-theme')
     } else {
       setTheme('dark-theme')
-      setValue(!value)
+      // setValue(!value)
     }
   }
 
   useEffect(() => {
     // here we are accessing the HTML document
     document.documentElement.className = theme
+    //console.log(theme, value)
+    //setValue(theme === 'dark-theme' ? true : false)
 
     localStorage.setItem('theme', theme)
   }, [theme])
@@ -44,7 +45,11 @@ function App() {
             toggle
           </button> */}
 
-          <Switch isOn={value} onColor='#4fa6f7' handleToggle={toggleTheme} />
+          <Switch
+            isOn={theme === 'dark-theme' ? true : false}
+            onColor='#4fa6f7'
+            handleToggle={toggleTheme}
+          />
 
           {/* <div
             onClick={() => {
