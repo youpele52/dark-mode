@@ -5,6 +5,8 @@ const Switch = ({ isOn, handleToggle, onColor }) => {
   return (
     <>
       <input
+        // the double !! is to force the JS to inteprete the boolean as boolean
+        // because it sometime intepretes it as a string
         checked={!!isOn}
         onChange={handleToggle}
         className='react-switch-checkbox'
